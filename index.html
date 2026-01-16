@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nesta Saint. Clever Parchment — Art Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap header">
+    <div class="brand">
+      <div class="name">Nesta Saint. Clever Parchment</div>
+      <div class="tag">Art Portfolio</div>
+    </div>
+
+    <!-- Theme toggle (top-right) -->
+    <button class="themeToggle" id="themeBtn" type="button" aria-label="Toggle light and dark mode"
+      title="Toggle light / dark">
+      🌗 <span id="themeLabel">Dark</span>
+    </button>
+  </header>
+
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Quiet intensity, soft grace.</h1>
+      <p>Minimal linework, soft washes, and pieces that sit between tension and hope.</p>
+    </section>
+
+    <section class="bar" aria-label="Gallery controls">
+      <div class="filters" role="tablist" aria-label="Categories">
+        <button class="chip is-active" data-filter="all" type="button">All</button>
+        <button class="chip" data-filter="abstract" type="button">Abstract</button>
+        <button class="chip" data-filter="figure" type="button">Figure</button>
+        <button class="chip" data-filter="faith" type="button">Faith</button>
+      </div>
+
+      <!-- NEW: Theme toggle
+      <button class="chip" id="themeBtn" type="button" aria-label="Toggle theme">
+        Theme: <span id="themeLabel">Dark</span>
+      </button> -->
+
+      <div class="count" id="count"></div>
+    </section>
+
+    <section class="gallery">
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> Nesta Saint. Clever Parchment
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Artwork viewer">
+    <button class="lbClose" id="lbClose" type="button" aria-label="Close">✕</button>
+
+    <img id="lbImg" alt="" />
+
+    <div class="lbCap">
+      <div class="lbTitle" id="lbTitle"></div>
+      <div class="lbSub" id="lbSub"></div>
+
+      <div class="lbNav">
+        <button class="lbBtn" id="prevBtn" type="button" aria-label="Previous">← Prev</button>
+        <button class="lbBtn" id="nextBtn" type="button" aria-label="Next">Next →</button>
+        <a class="lbBtn" id="openFile" href="#" target="_blank" rel="noreferrer">Open image</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

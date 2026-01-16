@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nesta Saint. Clever Parchment — Art Portfolio</title>
+  <meta name="description"
+    content="Art portfolio of Nesta Saint. Clever Parchment. Abstract linework, soft washes, faith-forward figurative pieces." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --bg2: #F2F2EF;
+      --card: rgba(255, 255, 255, .70);
+      --ink: #1C1C1C;
+      --muted: #5B5B5B;
+      --line: rgba(28, 28, 28, .10);
+      --shadow: 0 18px 60px rgba(0, 0, 0, .10);
+      --radius: 18px;
+
+      /* watercolor accents (subtle) */
+      --eden: rgba(221, 235, 223, .55);
+      --heaven: rgba(207, 227, 236, .55);
+      --blush: rgba(232, 198, 204, .50);
+      --sand: rgba(234, 221, 199, .55);
+
+      --max: 1120px;
+    }
+
+    /* Dark mode (optional – feels like late-night studio) */
+    html[data-theme="dark"] {
+      --bg: #070A10;
+      --bg2: #0C111B;
+      --card: rgba(15, 20, 31, .72);
+      --ink: #F4F4F4;
+      --muted: #B9BDC7;
+      --line: rgba(244, 244, 244, .12);
+      --shadow: 0 18px 60px rgba(0, 0, 0, .55);
+
+      --eden: rgba(62, 100, 78, .22);
+      --heaven: rgba(88, 135, 170, .22);
+      --blush: rgba(176, 86, 112, .18);
+      --sand: rgba(214, 173, 104, .16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 300;
+      letter-spacing: .01em;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* Background washes */
+    .wash {
+      position: fixed;
+      inset: -20vh -20vw;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(18px);
+      opacity: .85;
+      background:
+        radial-gradient(800px 500px at 15% 20%, var(--heaven), transparent 60%),
+        radial-gradient(700px 520px at 78% 18%, var(--blush), transparent 58%),
+        radial-gradient(720px 560px at 18% 78%, var(--eden), transparent 60%),
+        radial-gradient(760px 560px at 82% 82%, var(--sand), transparent 62%);
+      transform: translateZ(0);
+    }
+
+    /* Top nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--bg) 70%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1.1;
+    }
+
+    .brand .name {
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: .92rem;
+    }
+
+    .brand .tag {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      padding: 10px 12px;
+      border-radius: 999px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, .08);
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      user-select: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+      border-color: color-mix(in srgb, var(--ink) 22%, var(--line));
+    }
+
+    .btn small {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 28px;
+    }
+
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .heroGrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 78%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .heroCard {
+      padding: 26px 22px;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .heroCard::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(420px 260px at 20% 30%, var(--heaven), transparent 55%),
+        radial-gradient(420px 260px at 75% 65%, var(--eden), transparent 55%);
+      opacity: .75;
+      transform: rotate(-6deg);
+    }
+
+    .heroCard>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3.4vw, 3.0rem);
+      letter-spacing: .01em;
+      font-weight: 400;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+
+    .quote {
+      margin: 18px 0 0;
+      padding: 16px 16px;
+      border-left: 2px solid color-mix(in srgb, var(--ink) 20%, transparent);
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+      border-radius: 12px;
+    }
+
+    .quote p {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      letter-spacing: .03em;
+    }
+
+    .quote .note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .92rem;
+      font-family: Inter, sans-serif;
+      font-style: normal;
+      letter-spacing: .01em;
+    }
+
+    .sideCard {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: space-between;
+    }
+
+    .sideCard h2 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .pillRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      padding: 9px 11px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 28px 0;
+    }
+
+    .sectionHead {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .sectionHead h3 {
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: .95rem;
+    }
+
+    .sectionHead p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+      line-height: 1.6;
+      font-size: .98rem;
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: .92rem;
+      transition: transform .15s ease, border-color .2s ease;
+      user-select: none;
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+    }
+
+    .chip[aria-pressed="true"] {
+      border-color: color-mix(in srgb, var(--ink) 30%, var(--line));
+      background: color-mix(in srgb, var(--bg2) 80%, transparent);
+      text-decoration: none;
+    }
+
+    /* Gallery grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .work {
+      grid-column: span 4;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 78%, transparent);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 14px 44px rgba(0, 0, 0, .10);
+      cursor: pointer;
+      transition: transform .18s ease, border-color .2s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+    }
+
+    .work:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--ink) 25%, var(--line));
+    }
+
+    @media (max-width: 1000px) {
+      .work {
+        grid-column: span 6;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .work {
+        grid-column: span 12;
+      }
+    }
+
+    .thumb {
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform .25s ease;
+    }
+
+    .work:hover .thumb img {
+      transform: scale(1.04);
+    }
+
+    .meta {
+      padding: 14px 14px 16px;
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+    }
+
+    .titleRow {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .meta h4 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: .01em;
+    }
+
+    .meta .year {
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .meta .desc {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: .95rem;
+    }
+
+    .meta .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: .85rem;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+    }
+
+    /* Two-column content blocks */
+    .twoCol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .twoCol {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .block {
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 78%, transparent);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .08);
+    }
+
+    .block h4 {
+      margin: 0 0 10px;
+      font-size: .95rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: .98rem;
+    }
+
+    .block .em {
+      margin-top: 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      color: color-mix(in srgb, var(--ink) 86%, var(--muted));
+      font-size: 1.25rem;
+      letter-spacing: .03em;
+      line-height: 1.35;
+    }
+
+    /* Music embeds */
+    .embed {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg2) 70%, transparent);
+      aspect-ratio: 16/9;
+    }
+
+    .embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .musicNote {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      padding: 44px 0 70px;
+      border-top: 1px solid var(--line);
+      margin-top: 22px;
+    }
+
+    .foot {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .foot .small {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, .70);
+      z-index: 100;
+    }
+
+    .lightbox[aria-hidden="false"] {
+      display: grid;
+    }
+
+    .lbCard {
+      width: min(1100px, 100%);
+      max-height: 92vh;
+      overflow: hidden;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: 0 26px 90px rgba(0, 0, 0, .55);
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+    }
+
+    @media (max-width: 900px) {
+      .lbCard {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .lbImage {
+      background: rgba(0, 0, 0, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+    }
+
+    .lbImage img {
+      width: 100%;
+      height: 100%;
+      max-height: 92vh;
+      object-fit: contain;
+      background: transparent;
+    }
+
+    .lbInfo {
+      padding: 18px;
+      border-left: 1px solid var(--line);
+    }
+
+    @media (max-width: 900px) {
+      .lbInfo {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+    }
+
+    .lbTop {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .lbInfo h4 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .lbInfo .close {
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      user-select: none;
+    }
+
+    .lbInfo .close:hover {
+      text-decoration: none;
+    }
+
+    .lbInfo .sub {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .lbNav {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lbNav .btn {
+      box-shadow: none;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wash" aria-hidden="true"></div>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="name">Nesta Saint. Clever Parchment</div>
+        <div class="tag">Art Portfolio • Line • Wash • Faith • Abstraction</div>
+      </div>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a class="btn" href="#gallery">Gallery</a>
+        <a class="btn" href="#about">Statement</a>
+        <a class="btn" href="#music">Music</a>
+        <a class="btn" href="#contact">Contact</a>
+
+        <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">
+          <span id="themeLabel">Theme</span> <small id="themeHint">Light</small>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="panel heroCard reveal">
+          <h1>Quiet intensity, soft grace.</h1>
+          <p class="subtitle">
+            A collection of line-driven abstraction and figurative faith works—made to hold tension gently:
+            falling, searching, and being found.
+          </p>
+
+          <div class="quote" role="note">
+            <p>“Even at the bottom of the fall… I still hear the promise.”</p>
+            <div class="note">
+              Inspired by the emotional arc of “Never Let Me Down” and “EDEN” (short excerpts + themes).
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel sideCard reveal">
+          <div>
+            <h2>Focus</h2>
+            <div class="pillRow" aria-label="Focus tags">
+              <span class="pill">Minimal linework</span>
+              <span class="pill">Watercolor washes</span>
+              <span class="pill">Human form</span>
+              <span class="pill">Faith & hope</span>
+              <span class="pill">Modern calm</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="#gallery">View the work</a>
+            <a class="btn" href="#music">Listen / Mood</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="sectionHead">
+        <div>
+          <h3>Gallery</h3>
+          <p>
+            Clean presentation, plenty of breathing room. Tap any piece to view full size.
+          </p>
+        </div>
+
+        <div class="filters" aria-label="Filter works">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="abstract" aria-pressed="false">Abstract</button>
+          <button class="chip" type="button" data-filter="figure" aria-pressed="false">Figure</button>
+          <button class="chip" type="button" data-filter="faith" aria-pressed="false">Faith</button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- ABOUT / STATEMENT -->
+    <section id="about">
+      <div class="sectionHead">
+        <div>
+          <h3>Artist Statement</h3>
+          <p>
+            The work lives between restraint and release—like a held breath becoming a prayer.
+          </p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="block reveal">
+          <h4>Process</h4>
+          <p>
+            I build with a single continuous line and let color arrive like weather—soft, imperfect, and honest.
+            The emptiness is intentional: space becomes a witness.
+          </p>
+          <div class="em">“I want the work to feel like being carried through the dark.”</div>
+        </div>
+
+        <div class="block reveal">
+          <h4>Meaning</h4>
+          <p>
+            These pieces sit inside the tension of pain and hope. Some are abstract—pure emotion and rhythm.
+            Others are figurative—faith rendered quietly, without spectacle.
+          </p>
+          <div class="em">“Found, not famous. Held, not performed.”</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music">
+      <div class="sectionHead">
+        <div>
+          <h3>Soundtrack</h3>
+          <p>
+            Two songs that shaped the emotional temperature of this collection.
+            (Embedded video below—open and listen while scrolling.)
+          </p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="block reveal">
+          <h4>Kenna — Never Let Me Down</h4>
+          <div class="embed" aria-label="Kenna video embed">
+            <iframe src="https://www.youtube.com/embed/5ZftPafW78U" title="Kenna - Never Let Me Down"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="musicNote">
+            Key themes: falling, inner noise, the longing to “feel again,” and a promise that holds.
+          </p>
+        </div>
+
+        <div class="block reveal">
+          <h4>NXCRE & The Villains — EDEN</h4>
+          <div class="embed" aria-label="EDEN video embed">
+            <iframe src="https://www.youtube.com/embed/iNkbcKPdoXM" title="NXCRE & The Villains - EDEN"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="musicNote">
+            Key themes: being called by name, faith as shelter, and light returning to the path.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sectionHead">
+        <div>
+          <h3>Contact</h3>
+          <p>
+            For commissions, prints, collaborations, or exhibitions.
+          </p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="block reveal">
+          <h4>Reach out</h4>
+          <p>
+            Email: <a href="mailto:parchment@gmx.com">parchment@gmx.com</a><br />
+            LinkedIn: <a href="https://linkedin.com/in/parchment" target="_blank"
+              rel="noreferrer">linkedin.com/in/parchment</a><br />
+            GitHub: <a href="https://github.com/SaintClever" target="_blank" rel="noreferrer">github.com/SaintClever</a>
+          </p>
+          <div class="em">“Quiet work. Loud meaning.”</div>
+        </div>
+
+        <div class="block reveal">
+          <h4>Credits</h4>
+          <p>
+            Artwork & direction: Nesta Saint. Clever Parchment<br />
+            Site aesthetic: minimal, modern, soft-wash palette inspired by the collection.
+          </p>
+          <div class="pillRow" style="margin-top:12px;">
+            <span class="pill">Responsive</span>
+            <span class="pill">Lightbox</span>
+            <span class="pill">Filters</span>
+            <span class="pill">Theme toggle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <div>
+          <div class="brand">
+            <div class="name">Nesta Saint. Clever Parchment</div>
+            <div class="tag">Art Portfolio</div>
+          </div>
+        </div>
+        <div class="small">
+          © <span id="year"></span> • Built with restraint, space, and grace.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Artwork viewer">
+    <div class="lbCard" role="document">
+      <div class="lbImage">
+        <img id="lbImg" alt="" />
+      </div>
+      <div class="lbInfo">
+        <div class="lbTop">
+          <div>
+            <h4 id="lbTitle"></h4>
+            <div class="sub" id="lbSub"></div>
+          </div>
+          <a class="close" id="lbClose" href="#" aria-label="Close viewer">✕</a>
+        </div>
+
+        <p class="sub" id="lbDesc" style="margin-top:12px;"></p>
+
+        <div class="lbNav">
+          <button class="btn" id="prevBtn" type="button" aria-label="Previous artwork">← Prev</button>
+          <button class="btn" id="nextBtn" type="button" aria-label="Next artwork">Next →</button>
+          <a class="btn" id="openFile" target="_blank" rel="noreferrer" href="#" aria-label="Open image file">
+            Open image
+          </a>
+        </div>
+
+        <p class="sub" style="margin-top:14px;">
+          Tip: use ← → keys, or Esc to close.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ------- Works data (edit titles/descriptions anytime) -------
+    const works = [
+      {
+        file: "Abstract_Beauty.png",
+        title: "Abstract Beauty",
+        year: "2026",
+        categories: ["abstract", "figure"],
+        tags: ["Line", "Soft wash", "Stillness"],
+        desc: "A quiet portrait—defined more by absence than detail. Soft color arrives like memory."
+      },
+      {
+        file: "Abstraction_1.png",
+        title: "Abstraction I",
+        year: "2026",
+        categories: ["abstract"],
+        tags: ["Gesture", "Rhythm", "Breath"],
+        desc: "Movement without noise—an arc of paint carrying the line forward."
+      },
+      {
+        file: "Abstraction_2.png",
+        title: "Abstraction II",
+        year: "2026",
+        categories: ["abstract"],
+        tags: ["Signal", "Pattern", "Echo"],
+        desc: "A coded pulse—repetition, tension, and a soft opening in the middle."
+      },
+      {
+        file: "Abstraction_3.png",
+        title: "Abstraction III",
+        year: "2026",
+        categories: ["abstract"],
+        tags: ["Light", "Air", "Wash"],
+        desc: "A field of quiet color—space becomes the subject."
+      },
+      {
+        file: "Back_to_the_basics.png",
+        title: "Back to the Basics",
+        year: "2026",
+        categories: ["abstract"],
+        tags: ["Minimal", "Grounded", "Return"],
+        desc: "A return to simplest marks—line, tone, and a calm center."
+      },
+      {
+        file: "Cubism.png",
+        title: "Cubism Study",
+        year: "2026",
+        categories: ["abstract", "figure"],
+        tags: ["Form", "Angle", "Contour"],
+        desc: "A face rebuilt from edges—fragmentation as a kind of honesty."
+      },
+      {
+        file: "Father_in_heaven.png",
+        title: "Father in Heaven",
+        year: "2026",
+        categories: ["faith", "figure"],
+        tags: ["Devotional", "Texture", "Crown"],
+        desc: "A prayer in portrait form—weight, surrender, and reverence."
+      },
+      {
+        file: "Jesus.png",
+        title: "Jesus",
+        year: "2026",
+        categories: ["faith", "figure"],
+        tags: ["Grace", "Sorrow", "Hope"],
+        desc: "A quiet depiction—less spectacle, more tenderness."
+      },
+      {
+        file: "SaviorAndChild.png",
+        title: "Savior and Child",
+        year: "2026",
+        categories: ["faith", "figure"],
+        tags: ["Guidance", "Innocence", "Promise"],
+        desc: "A walk forward—held by love, framed by sky."
+      },
+      {
+        file: "Untitled_Artwork.png",
+        title: "Untitled",
+        year: "2026",
+        categories: ["abstract"],
+        tags: ["Atmosphere", "Wash", "Open space"],
+        desc: "Color as air—quiet layers and room to breathe."
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+
+    function createCard(w, index) {
+      const el = document.createElement("article");
+      el.className = "work reveal";
+      el.dataset.categories = w.categories.join(" ");
+      el.tabIndex = 0;
+
+      el.innerHTML = `
+        <div class="thumb">
+          <img loading="lazy" src="images/${w.file}" alt="${w.title} by Nesta Saint. Clever Parchment">
+        </div>
+        <div class="meta">
+          <div class="titleRow">
+            <h4>${w.title}</h4>
+            <div class="year">${w.year}</div>
+          </div>
+          <p class="desc">${w.desc}</p>
+          <div class="tags">
+            ${w.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+          </div>
+        </div>
+      `;
+
+      el.addEventListener("click", () => openLightbox(index));
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") openLightbox(index);
+      });
+      return el;
+    }
+
+    function render(list) {
+      grid.innerHTML = "";
+      list.forEach((w, i) => grid.appendChild(createCard(w, i)));
+      observeReveals();
+    }
+
+    // ------- Filters -------
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    let activeFilter = "all";
+
+    function applyFilter() {
+      const cards = Array.from(document.querySelectorAll(".work"));
+      cards.forEach(card => {
+        const cats = card.dataset.categories || "";
+        const show = (activeFilter === "all") || cats.includes(activeFilter);
+        card.style.display = show ? "" : "none";
+      });
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        activeFilter = chip.dataset.filter;
+        chips.forEach(c => c.setAttribute("aria-pressed", String(c === chip)));
+        applyFilter();
+      });
+    });
+
+    // ------- Lightbox -------
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbTitle = document.getElementById("lbTitle");
+    const lbSub = document.getElementById("lbSub");
+    const lbDesc = document.getElementById("lbDesc");
+    const lbClose = document.getElementById("lbClose");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const openFile = document.getElementById("openFile");
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const w = works[currentIndex];
+
+      lbImg.src = `images/${w.file}`;
+      lbImg.alt = `${w.title} by Nesta Saint. Clever Parchment`;
+
+      lbTitle.textContent = w.title;
+      lbSub.textContent = `Nesta Saint. Clever Parchment • ${w.year}`;
+      lbDesc.textContent = w.desc;
+      openFile.href = `images/${w.file}`;
+
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function prev() {
+      currentIndex = (currentIndex - 1 + works.length) % works.length;
+      openLightbox(currentIndex);
+    }
+    function next() {
+      currentIndex = (currentIndex + 1) % works.length;
+      openLightbox(currentIndex);
+    }
+
+    lbClose.addEventListener("click", (e) => { e.preventDefault(); closeLightbox(); });
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    prevBtn.addEventListener("click", prev);
+    nextBtn.addEventListener("click", next);
+
+    window.addEventListener("keydown", (e) => {
+      const open = lightbox.getAttribute("aria-hidden") === "false";
+      if (!open) return;
+
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    });
+
+    // ------- Theme toggle (remembers) -------
+    const themeBtn = document.getElementById("themeBtn");
+    const themeHint = document.getElementById("themeHint");
+
+    function setTheme(mode) {
+      document.documentElement.setAttribute("data-theme", mode);
+      localStorage.setItem("theme", mode);
+      themeHint.textContent = mode === "dark" ? "Dark" : "Light";
+    }
+
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") setTheme(saved);
+
+    themeBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+
+    // ------- Scroll reveal -------
+    function observeReveals() {
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) en.target.classList.add("in");
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    }
+
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Initial render
+    render(works);
+    applyFilter();
+  </script>
+</body>
+
+</html>
