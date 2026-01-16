@@ -7,7 +7,6 @@ const works = [
     categories: ["abstract"],
   },
   { file: "Cubism.png", title: "Cubism", categories: ["abstract", "figure"] },
-
   { file: "Baller.png", title: "Baller", categories: ["figure"] },
   { file: "BMX.png", title: "BMX", categories: ["figure"] },
   { file: "Cobra.png", title: "Cobra", categories: ["figure"] },
@@ -15,6 +14,27 @@ const works = [
   { file: "Deer_Earth.png", title: "Deer (Earth)", categories: ["figure"] },
   { file: "Dolphin.png", title: "Dolphin", categories: ["figure"] },
   { file: "El_Toro.png", title: "El Toro", categories: ["figure"] },
+
+  {
+    file: "Jesus.png",
+    title: "Jesus",
+    categories: ["faith"],
+  },
+  {
+    file: "Father_in_heaven.png",
+    title: "Father in Heaven",
+    categories: ["faith"],
+  },
+  {
+    file: "Family_Outing.png",
+    title: "Family Outing",
+    categories: ["faith, figure"],
+  },
+  {
+    file: "SaviorAndChild.png",
+    title: "Savior and Child",
+    categories: ["faith"],
+  },
 
   // Add your faith pieces here later:
   // { file: "Jesus.png", title: "Jesus", categories: ["faith", "figure"] },
